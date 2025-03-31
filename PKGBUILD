@@ -1,7 +1,7 @@
 
 # Maintainer: Costin Botescu <costin.botescu@gmail.com>
 pkgname=edor
-pkgver=1.x63
+pkgver=1.x64
 pkgrel=1
 pkgdesc="CUI text editor"
 arch=(x86_64 aarch64)
@@ -21,16 +21,19 @@ noextract=()
 sha256sums=('SKIP')
 
 prepare() {
-	cd "$pkgname"
-	a=`git ls-remote --tags --sort='v:refname' | tail -n1 | sed 's/.*\///; s/\^{}//; s/\-/./'`
-	#patch from 1.x63 to current version
-	echo -n ${a} > version.txt
-	cat version.txt
+	patches=( `cat ../patches/list` )
+	cd $pkgname
+	for var in "${patches[@]}"; do
+		echo ${var}
+		patch --strip=1 --input=../../patches/${var}
+	done
 }
 
 pkgver() {
 	cd "$pkgname"
-	cat version.txt
+	git ls-remote --tags --sort='v:refname' > version.txt 2>&1 #it is extra: From...
+	cat version.txt | tail -n1 | sed 's/.*\///; s/\-/./'
+	rm version.txt
 }
 
 build() {
