@@ -1,3 +1,4 @@
-edor*
-pkg
-src
+/edor
+/edor-*
+/pkg
+/src
