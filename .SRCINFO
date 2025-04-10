@@ -1,12 +1,13 @@
 pkgbase = edor
 	pkgdesc = CUI text editor
-	pkgver = 1.x64
-	pkgrel = 1
+	pkgver = 1.x68
+	pkgrel = 2
 	url = https://github.com/colin-i/edor
 	arch = x86_64
 	arch = aarch64
 	license = 0BSD
 	makedepends = ncurses
+	makedepends = bc
 	depends = ncurses
 	source = git+http://github.com/colin-i/edor.git#tag=1-x63
 	sha256sums = SKIP
