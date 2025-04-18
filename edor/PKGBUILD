@@ -18,7 +18,7 @@ options=()
 install=
 source=('git+http://github.com/colin-i/edor.git#tag=1-x69')
 noextract=()
-sha256sums=('SKIP')
+sha256sums=('514ddabf2b801c345da63e5478a421e5100a3db4c1852c201031409fa8ad8001')
 
 prepare() {
 	patches="`cat ../patches/list`"
