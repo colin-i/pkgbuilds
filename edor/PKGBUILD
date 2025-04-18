@@ -1,8 +1,8 @@
 
 # Maintainer: Costin Botescu <costin.botescu@gmail.com>
 pkgname=edor
-pkgver=1.x68
-pkgrel=2
+pkgver=1.x69
+pkgrel=1
 pkgdesc="CUI text editor"
 arch=('any')
 url="https://github.com/colin-i/edor"
@@ -16,14 +16,14 @@ replaces=()
 backup=()
 options=()
 install=
-source=('git+http://github.com/colin-i/edor.git#tag=1-x63')
+source=('git+http://github.com/colin-i/edor.git#tag=1-x69')
 noextract=()
 sha256sums=('SKIP')
 
 prepare() {
-	patches=( `cat ../patches/list` )
+	patches="`cat ../patches/list`"
 	cd $pkgname
-	for var in "${patches[@]}"; do
+	for var in ${patches[@]}; do
 		echo ${var}
 		patch --strip=1 --input=../../patches/${var}
 	done
