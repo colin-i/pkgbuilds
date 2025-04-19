@@ -8,7 +8,7 @@ pkgbase = edor
 	makedepends = ncurses
 	makedepends = bc
 	depends = ncurses
-	source = git+https://github.com/colin-i/edor.git#tag=1-x69
-	sha256sums = 514ddabf2b801c345da63e5478a421e5100a3db4c1852c201031409fa8ad8001
+	source = edor-1-x69.tar.gz::https://github.com/colin-i/edor/archive/1-x69.tar.gz
+	sha256sums = c27d28fa67d41fe144803dcd9e836d559ef4fb65e287f7cf044f0c421c1b52f3
 
 pkgname = edor
