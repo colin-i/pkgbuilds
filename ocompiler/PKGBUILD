@@ -1,22 +1,23 @@
 # Maintainer: Costin Botescu <costin.botescu@gmail.com>
 pkgname=ocompiler
+pkgname_atsource=o
 pkgver=1.5+225
 pkgrel=1
 pkgdesc="O language compiler"
 arch=('x86_64')
-url="https://github.com/colin-i/o"
+url="https://github.com/colin-i/${pkgname_atsource}"
 license=('0BSD')
 depends=('lib32-glibc')
 makedepends=('lib32-glibc' 'bc')
-source=("${pkgname}-`echo ${pkgver} | sed 's/\./\-/'`.tar.gz::https://github.com/colin-i/o/archive/`echo ${pkgver} | sed 's/\./\-/'`.tar.gz"
-	"obj.txt::https://github.com/colin-i/o/releases/download/`echo ${pkgver} | sed 's/\./\-/'`/obj.txt")
+source=("${pkgname_atsource}-`echo ${pkgver} | sed 's/\./\-/'`.tar.gz::https://github.com/colin-i/${pkgname_atsource}/archive/`echo ${pkgver} | sed 's/\./\-/'`.tar.gz"
+	"obj.txt::https://github.com/colin-i/${pkgname_atsource}/releases/download/`echo ${pkgver} | sed 's/\./\-/'`/obj.txt")
 sha256sums=('bd4c0d1680232e6c1fefb74c22e9289fad8f6a2a802790a4e506d90da7c2a2ae'
 	'c4dabe84b108379ada23137d656ea8cb9c500b0c79c7324d1a52c8c87497029e')
 
 prepare() {
 	ver=`echo ${pkgver} | sed 's/\./\-/'`
 	patches="`cat ../list`"
-	cd "$pkgname-$ver"
+	cd "${pkgname_atsource}-$ver"
 	for var in ${patches[@]}; do
 		echo ${var}
 		patch --strip=1 --input=../../${var}
@@ -26,18 +27,18 @@ prepare() {
 
 build() {
 	ver=`echo ${pkgver} | sed 's/\./\-/'`
-	cd "$pkgname-$ver"
+	cd "${pkgname_atsource}-$ver"
 	make
 }
 
 check() {
 	ver=`echo ${pkgver} | sed 's/\./\-/'`
-	cd "$pkgname-$ver"
+	cd "${pkgname_atsource}-$ver"
 	make test
 }
 
 package() {
 	ver=`echo ${pkgver} | sed 's/\./\-/'`
-	cd "$pkgname-$ver"
+	cd "${pkgname_atsource}-$ver"
 	make DESTDIR="$pkgdir/" install
 }
