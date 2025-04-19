@@ -7,7 +7,7 @@ arch=('x86_64')
 url="https://github.com/colin-i/o"
 license=('0BSD')
 depends=('lib32-glibc')
-makedepends=('lib32-glibc')
+makedepends=('lib32-glibc' 'bc')
 source=("${pkgname}-`echo ${pkgver} | sed 's/\./\-/'`.tar.gz::https://github.com/colin-i/o/archive/`echo ${pkgver} | sed 's/\./\-/'`.tar.gz"
 	"obj.txt::https://github.com/colin-i/o/releases/download/`echo ${pkgver} | sed 's/\./\-/'`/obj.txt")
 sha256sums=('bd4c0d1680232e6c1fefb74c22e9289fad8f6a2a802790a4e506d90da7c2a2ae'
