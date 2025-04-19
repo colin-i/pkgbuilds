@@ -1,4 +1,3 @@
-
 # Maintainer: Costin Botescu <costin.botescu@gmail.com>
 pkgname=edor
 pkgver=1.x69
@@ -7,48 +6,37 @@ pkgdesc="CUI text editor"
 arch=('any')
 url="https://github.com/colin-i/edor"
 license=('0BSD')
-groups=()
 depends=('ncurses')
 makedepends=('ncurses' 'bc')
-provides=()
-conflicts=()
-replaces=()
-backup=()
-options=()
-install=
-source=('git+https://github.com/colin-i/edor.git#tag=1-x69')
-noextract=()
-sha256sums=('514ddabf2b801c345da63e5478a421e5100a3db4c1852c201031409fa8ad8001')
+source=("${pkgname}-`echo ${pkgver} | sed 's/\./\-/'`.tar.gz::https://github.com/colin-i/edor/archive/`echo ${pkgver} | sed 's/\./\-/'`.tar.gz")
+sha256sums=('c27d28fa67d41fe144803dcd9e836d559ef4fb65e287f7cf044f0c421c1b52f3')
 
 prepare() {
+	ver=`echo ${pkgver} | sed 's/\./\-/'`
 	patches="`cat ../patches/list`"
-	cd "$pkgname"
+	cd "$pkgname-$ver"
 	for var in ${patches[@]}; do
 		echo ${var}
 		patch --strip=1 --input=../../patches/${var}
 	done
 }
 
-pkgver() {
-	cd "$pkgname"
-	git ls-remote --tags --sort='v:refname' > version.txt 2>&1 #it is extra: From...
-	cat version.txt | tail -n1 | sed 's/.*\///; s/\-/./'
-	rm version.txt
-}
-
 build() {
-	cd "$pkgname"
+	ver=`echo ${pkgver} | sed 's/\./\-/'`
+	cd "$pkgname-$ver"
 	autoreconf -i
 	./configure --prefix=/usr
 	make
 }
 
 check() {
-	cd "$pkgname"
+	ver=`echo ${pkgver} | sed 's/\./\-/'`
+	cd "$pkgname-$ver"
 	make test
 }
 
 package() {
-	cd "$pkgname"
+	ver=`echo ${pkgver} | sed 's/\./\-/'`
+	cd "$pkgname-$ver"
 	make DESTDIR="$pkgdir/" install
 }
