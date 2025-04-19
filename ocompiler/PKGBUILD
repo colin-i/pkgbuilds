@@ -2,7 +2,7 @@
 pkgname=ocompiler
 pkgname_atsource=o
 pkgver=1.5+225
-pkgrel=2
+pkgrel=1
 pkgdesc="O language compiler"
 arch=('x86_64')
 url="https://github.com/colin-i/${pkgname_atsource}"
