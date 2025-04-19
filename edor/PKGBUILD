@@ -13,11 +13,11 @@ sha256sums=('c27d28fa67d41fe144803dcd9e836d559ef4fb65e287f7cf044f0c421c1b52f3')
 
 prepare() {
 	ver=`echo ${pkgver} | sed 's/\./\-/'`
-	patches="`cat ../patches/list`"
+	patches="`cat ../list`"
 	cd "$pkgname-$ver"
 	for var in ${patches[@]}; do
 		echo ${var}
-		patch --strip=1 --input=../../patches/${var}
+		patch --strip=1 --input=../../${var}
 	done
 }
 
