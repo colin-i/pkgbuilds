@@ -2,7 +2,7 @@
 pkgname=ocompiler
 pkgname_atsource=o
 pkgver=1.5+225
-pkgrel=1
+pkgrel=2
 pkgdesc="O language compiler"
 arch=('x86_64')
 url="https://github.com/colin-i/${pkgname_atsource}"
@@ -25,17 +25,17 @@ prepare() {
 		echo ${var}
 		patch --strip=1 --input=../../${var}
 	done
-	cp ../../obj.txt src
+	ln ../../obj.txt src
 }
 
 build() {
 	ver_atsource_fn
-	L=/usr/lib32 make
+	L=-L/usr/lib32 make
 }
 
 check() {
 	ver_atsource_fn
-	L=/usr/lib32 make test
+	L=-L/usr/lib32 make test
 }
 
 package() {
