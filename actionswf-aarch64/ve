@@ -1,0 +1,8 @@
+
+ver=`cat ../actionswf/PKGBUILD | grep ^pkgver`
+rel=`cat ../actionswf/PKGBUILD | grep ^pkgrel`
+
+sed -i "0,/^pkgver/s/^pkgver.*/${ver}/" PKGBUILD
+sed -i "0,/^pkgrel/s/^pkgrel.*/${rel}/" PKGBUILD
+
+~/test/bots/sync
