@@ -1,0 +1,13 @@
+# Maintainer: Costin Botescu <costin.botescu@gmail.com>
+pkgname=actionswf
+pkgver=1.132
+pkgrel=1
+pkgdesc="Action Swf library"
+arch=('aarch64')
+url="https://github.com/colin-i/${pkgname}"
+license=('0BSD')
+
+package() {
+	cd "${pkgname}/oad"
+	make DESTDIR="$pkgdir/" install-lib
+}
