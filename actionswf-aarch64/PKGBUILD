@@ -8,6 +8,6 @@ url="https://github.com/colin-i/${pkgname}"
 license=('0BSD')
 
 package() {
-	cd "${pkgname}/oad"
+	cd oad
 	make DESTDIR="$pkgdir/" install-lib
 }
