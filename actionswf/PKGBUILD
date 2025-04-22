@@ -22,6 +22,7 @@ prepare() {
 		echo ${var}
 		patch --strip=1 --input=../../${var}
 	done
+	touch include_dev
 }
 
 build() {
