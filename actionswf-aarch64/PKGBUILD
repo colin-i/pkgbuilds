@@ -1,6 +1,6 @@
 # Maintainer: Costin Botescu <costin.botescu@gmail.com>
 pkgname=actionswf
-pkgver=1.138
+pkgver=1.140
 pkgrel=1
 pkgdesc="Action Swf library"
 arch=('aarch64')
