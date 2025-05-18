@@ -9,7 +9,7 @@ license=('0BSD')
 depends=('ncurses')
 makedepends=('ncurses' 'bc')
 source=("${pkgname}-${pkgver}-${pkgrel}.tar.gz::https://github.com/colin-i/edor/archive/${pkgname}-${pkgver}-${pkgrel}.tar.gz")
-sha256sums=('f90108764ab8eec3d76c7ab7521e0c9c9b3a1d0889cb3184dea8f380cec7a0da')
+sha256sums=('95666536cc5f0b84255246c6fbd960473e8e51707c5bde091987d9528cb6e8e6')
 
 prepare() {
 	_patches="`cat ../list`"
