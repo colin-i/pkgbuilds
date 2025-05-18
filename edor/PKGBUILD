@@ -13,7 +13,7 @@ sha256sums=('f90108764ab8eec3d76c7ab7521e0c9c9b3a1d0889cb3184dea8f380cec7a0da')
 
 prepare() {
 	_patches="`cat ../list`"
-	cd "$pkgname-$pkgver"
+	cd "$pkgname-$pkgname-$pkgver"
 	for _var in ${_patches[@]}; do
 		echo ${_var}
 		patch --strip=1 --input=../../${_var}
@@ -21,18 +21,18 @@ prepare() {
 }
 
 build() {
-	cd "$pkgname-$pkgver"
+	cd "$pkgname-$pkgname-$pkgver"
 	autoreconf -i
 	./configure --prefix=/usr
 	make
 }
 
 check() {
-	cd "$pkgname-$pkgver"
+	cd "$pkgname-$pkgname-$pkgver"
 	make test
 }
 
 package() {
-	cd "$pkgname-$pkgver"
+	cd "$pkgname-$pkgname-$pkgver"
 	make DESTDIR="$pkgdir/" install
 }
