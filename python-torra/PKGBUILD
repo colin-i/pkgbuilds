@@ -1,7 +1,7 @@
 # Maintainer: Costin Botescu <costin.botescu@gmail.com>
 pkgname=python-torra
 _name=`echo ${pkgname} | grep -Po "(?<=-).*"`
-pkgver=1.0.37
+pkgver=1.0.38
 pkgrel=0
 pkgdesc="Torrent client"
 arch=('any')
