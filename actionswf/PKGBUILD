@@ -7,7 +7,7 @@ arch=('x86_64')
 url="https://github.com/colin-i/${pkgname}"
 license=('0BSD')
 depends=('lib32-glibc' 'bc' 'ffdec-bin')
-makedepends=('lib32-glibc' 'bc' 'ocompiler>=1.5+226' 'ffdec-bin')
+makedepends=('lib32-glibc' 'bc' 'ocompiler' 'ffdec-bin')
 source=("${pkgname}-`echo ${pkgver} | sed 's/\./\-/'`.tar.gz::https://github.com/colin-i/${pkgname}/archive/`echo ${pkgver} | sed 's/\./\-/'`.tar.gz")
 sha256sums=('1a596429d90786f9897317c1e2ce97fa3541dc65fad15adae8980964d7ce58ab')
 
