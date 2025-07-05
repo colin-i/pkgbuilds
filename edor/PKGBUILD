@@ -8,7 +8,7 @@ url="https://github.com/colin-i/edor"
 license=('0BSD')
 depends=('ncurses')
 makedepends=('ncurses' 'bc')
-source=("${pkgname}-${pkgver}-${pkgrel}.tar.gz::https://github.com/colin-i/edor/archive/${pkgname}-${pkgver}-0.tar.gz")
+source=("${pkgname}-${pkgver}-0.tar.gz::https://github.com/colin-i/edor/archive/${pkgname}-${pkgver}-0.tar.gz")
 sha256sums=('2648d1b629c6850338e09cf4b63969d490468f47acf9c01fffc5e0fdf76aa98d')
 
 prepare() {
