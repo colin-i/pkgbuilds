@@ -1,13 +1,12 @@
 set -e
-echo first will ./ve at actionswf. y and Enter to continue
+echo first will ./ve at actionswf if y and Enter
 read -t $((60*60*24)) ans
-if [ "${ans}" != "y" ]; then
-	exit 1
+if [ "${ans}" = "y" ]; then
+	a=`pwd`
+	cd ../actionswf
+	no_sync=x ~/test/pkg/ve
+	cd $a
 fi
-a=`pwd`
-cd ../actionswf
-no_sync=x ~/test/pkg/ve
-cd $a
 
 ver=`cat ../actionswf/PKGBUILD | grep ^pkgver`
 rel=`cat ../actionswf/PKGBUILD | grep ^pkgrel`
