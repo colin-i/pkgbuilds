@@ -1,0 +1,34 @@
+pkgname=ffdec
+pkgver=1
+pkgrel=0
+pkgdesc="Open source Flash SWF decompiler and editor"
+arch=('any')
+license=('GPL3')
+provides=('ffdec')
+depends=('java-runtime>=8')
+makedepends=('git' 'wget' 'unzip')
+
+#https://github.com/jindrapetrik/jpexs-decompiler/releases/download/version24.1.0/ffdec_24.1.0.zip
+prepare() {
+	_tag=`git ls-remote --tags --sort='v:refname' https://github.com/jindrapetrik/jpexs-decompiler | tail -n1 | sed 's/.*\///'`
+	_ver=${_tag:7}
+	cd "$srcdir"
+	wget https://github.com/jindrapetrik/jpexs-decompiler/releases/download/${_tag}/ffdec_${_ver}.zip -O ${pkgname}_${pkgver}.zip
+	unzip ${pkgname}_${pkgver}.zip
+	cat > ffdec-bin <<EOF
+#!/bin/sh
+DEFAULT_JVM_OPTS='-Xms128M -XX:MaxRAMPercentage=70.0 -XX:+UseG1GC -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
+exec java $DEFAULT_JVM_OPTS  -Djava.net.preferIPv4Stack=true  -cp '/usr/share/java/ffdec/lib' -jar '/usr/share/java/ffdec/ffdec.jar' "\$@"
+EOF
+}
+
+package() {
+	cd "$srcdir"
+	install -Ddm755 "${pkgdir}/usr/share/java/${pkgname}/lib"
+	install -Dm755 "${pkgname}-bin" "${pkgdir}/usr/bin/${pkgname}"
+	install -Dm644 "${pkgname}.jar" "${pkgdir}/usr/share/java/${pkgname}/${pkgname}.jar"
+	cd "$srcdir/lib"
+	for f in *.jar; do
+		cp -d --no-preserve=ownership "$f" "${pkgdir}/usr/share/java/${pkgname}/lib/$f"
+	done
+}
