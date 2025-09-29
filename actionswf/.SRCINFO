@@ -1,7 +1,7 @@
 pkgbase = actionswf
 	pkgdesc = Action Swf library
 	pkgver = 1.154
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/colin-i/actionswf
 	arch = x86_64
 	license = 0BSD
