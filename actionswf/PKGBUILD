@@ -1,7 +1,7 @@
 # Maintainer: Costin Botescu <costin.botescu@gmail.com>
 pkgname=actionswf
 pkgver=1.161
-pkgrel=0
+pkgrel=1
 pkgdesc="Action Swf library"
 arch=('x86_64')
 url="https://github.com/colin-i/${pkgname}"
