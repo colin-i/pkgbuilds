@@ -1,13 +1,13 @@
 # Maintainer: Costin Botescu <costin.botescu@gmail.com>
 pkgname=actionswf
 pkgver=1.162
-pkgrel=2
+pkgrel=0
 pkgdesc="Action Swf library"
 arch=('aarch64')
 url="https://github.com/colin-i/${pkgname}"
 license=('0BSD')
 
 package() {
-	cd oad
-	make DESTDIR="$pkgdir/" install-lib
+	touch include_dev
+	make DESTDIR="$pkgdir/"
 }
