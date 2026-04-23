@@ -9,5 +9,5 @@ license=('0BSD')
 
 package() {
 	touch include_dev
-	make DESTDIR="$pkgdir/"
+	make DESTDIR="$pkgdir/" install
 }
