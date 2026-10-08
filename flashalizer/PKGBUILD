@@ -7,7 +7,7 @@ pkgdesc="GUI to make .swf files"
 arch=('any')
 url="https://github.com/colin-i/${pkgname}"
 license=('0BSD')
-depends=('java-runtime' 'java-jna' 'javassist' 'actionswf')
+depends=('java-runtime' 'jna' 'jna-platform' 'javassist' 'actionswf')
 makedepends=('ant' 'java-environment')
 source=("${pkgname}-${pkgver}-${_rel_at_source}.tar.gz::https://github.com/colin-i/${pkgname}/archive/${pkgname}-${pkgver}-${_rel_at_source}.tar.gz")
 sha256sums=('bec8c3cd2c8184c6364c79676f5929addb8a4ae20ec3da0bb672c66be74a115d')
@@ -27,10 +27,14 @@ prepare() {
 
 build() {
 	_tag
-	make
+	ant build
 }
 
 package() {
 	_tag
-	make DESTDIR="$pkgdir/" install
+	install -Dm644 dist/flashalizer.jar "$pkgdir/usr/share/java/flashalizer.jar"
+	install -Dm755 /dev/stdin "$pkgdir/usr/bin/flashalizer" <<'EOF'
+#!/bin/sh
+exec java --add-opens=java.base/java.lang=ALL-UNNAMED --enable-native-access=ALL-UNNAMED -jar /usr/share/java/flashalizer.jar "$@"
+EOF
 }
