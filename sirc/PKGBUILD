@@ -8,7 +8,6 @@ arch=('any')
 url="https://github.com/colin-i/${_pkgname_atsource}"
 license=('0BSD')
 depends=('openssl' 'gtk3')
-makedepends=('openssl' 'gtk3')
 source=("${pkgname}-${pkgver}-0.tar.gz::https://github.com/colin-i/${_pkgname_atsource}/archive/${pkgname}-${pkgver}-0.tar.gz")
 sha256sums=('0513f3136f62195b10918e62c181679cf65ee881ab8edd05999e6b18857a557a')
 

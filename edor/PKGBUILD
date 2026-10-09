@@ -7,7 +7,7 @@ arch=('any')
 url="https://github.com/colin-i/edor"
 license=('0BSD')
 depends=('ncurses')
-makedepends=('ncurses' 'bc')
+makedepends=('bc')
 source=("${pkgname}-${pkgver}-0.tar.gz::https://github.com/colin-i/edor/archive/${pkgname}-${pkgver}-0.tar.gz")
 sha256sums=('d1359b0898c93fb302309a46fc7c62ca292484fa0295f7257541f974634f3804')
 

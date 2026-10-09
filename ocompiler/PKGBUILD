@@ -9,7 +9,7 @@ arch=('x86_64')
 url="https://github.com/colin-i/${_pkgname_atsource}"
 license=('0BSD')
 depends=('lib32-glibc')
-makedepends=('lib32-glibc' 'bc')
+makedepends=('bc')
 
 source=("${pkgname}-${pkgver}-0.tar.gz::https://github.com/colin-i/${_pkgname_atsource}/archive/${pkgname}-${pkgver}-0.tar.gz"
 	"obj.txt.gz::https://github.com/colin-i/${_pkgname_atsource}/releases/download/${pkgname}-${pkgver}-0/obj.txt.gz")
