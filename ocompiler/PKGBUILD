@@ -28,7 +28,7 @@ prepare() {
 		echo ${_var}
 		patch --strip=1 --input=../../${_var}
 	done
-	ln "../${pkgname}-${pkgver}-${_rel_at_source}-obj.txt.gz" src
+	ln "../${pkgname}-${pkgver}-${_rel_at_source}-obj.txt" src/obj.txt
 	touch include_dev
 }
 
